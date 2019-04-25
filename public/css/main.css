@@ -1,7 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600|Poppins:300,500,700|Open+Sans:300,200');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Open+Sans:300,200');
 :root {
     --darkfont: black;
+    --lightfont: white;
+    --linespace: 1.5;
     
+    --heading: "source code pro", monospace;
+    --subheading: "source code pro", monospace;
+    --content: "source code pro", monospace;
+    
+    --bgcolor: black;
+    --black: black;
+    --white: white;
+    --impactcolour: #CA55ED;
+    --highlightcolour: #CA55ED;
+    
+    --padding: 3em;
+    
+    --impactshadow: 5px 5px 5px 0 var(--impactcolour);
+    
+    --scalewidth: 12em;
 }
 
 * {
@@ -18,11 +35,7 @@ html {
 }
 
 ::selection {
-    background-color: var(--highlightcolor);
-    color: var(--lightfont);
-}
-.highlighted {
-    background-color: rgba(51, 97, 242, 0.9);
+    background-color: var(--highlightcolour);
     color: var(--lightfont);
 }
   
@@ -32,24 +45,27 @@ html, body {
   
   body {
     background-color: var(--bgcolor);
-    color: var(--darkfont);
-    overflow-x: hidden;
+    color: var(--lightfont);
+    overflow: hidden;
     user-select: auto !important;
     -moz-user-select: auto !important;
+    padding: calc(var(--padding) * 2);
   }
   
   h1, h2 {
-      font: 700 2.25em/1.3 var(--heading);
+      font: 700 3.75em/1.3 var(--heading);
+      text-transform: uppercase;
   }
   h2 {
-      font-size: 1.25em;
-      margin-bottom: 0.7em;
+      font-size: 2.25em;
   }
   h3 {
     font: 300 0.75em var(--subheading);
+    font-size: 1.8em;
+    text-transform: uppercase;
   }
   h4 {
-    font: 600 0.75em var(--subheading);
+    font: 600 1.3em var(--subheading);
   }
   h5 {
     font: 600 0.6em "Helvetica";
@@ -58,5 +74,283 @@ html, body {
     font-weight: 300;
   }
   p {
-    font-size: 0.75em;
+    font-size: 1.5em;
   }
+  
+  .colourtxt {
+      color: var(--impactcolour);
+      text-transform: capitalize;
+  }
+  
+  button.button {
+    border: solid 2px var(--white);
+    outline: none;
+    padding: calc( var(--padding) / 6) var(--padding);
+    color: var(--white);
+    cursor: pointer;
+    margin: 0.5em;
+    background-color: var(--black);
+    font-size: 1em;
+    transition: 0.2s ease-out;
+    
+    text-transform: uppercase;
+    font: 700 1.875em/1.3 var(--heading);
+    box-shadow: var(--impactshadow);
+}
+button.button.large {
+    font-size: 2.5em;
+}
+button.button:hover {
+    /* box-shadow: 0 0 0 3px var(--impactcolour); */
+    border: solid 2px var(--impactcolour);
+    background-color: var(--impactcolour);
+}
+
+button.button.important {
+    border: solid 2px var(--impactcolour);
+    background-color: var(--impactcolour);
+}
+button.button.important:hover {
+    background-color: var(--black);
+}
+
+.title {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.start {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: var(--padding);
+    text-align: center;
+}
+.logo {
+    filter: invert(1);
+    width: 20em;
+    margin: 0 auto;
+    margin-top: 10em;
+    margin-bottom: 20em;
+}
+.city-back {
+    position: absolute;
+    bottom: -8em;
+    width: 100%;
+    left: 0;
+}
+.step-info {
+    width: 20em;
+    margin-top: 5em;
+}
+.start p {
+    max-width: 20em;
+    margin: 0 auto;
+    margin-top: 4em;
+}
+.start .start-btn {
+    position: absolute;
+    bottom: 8em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.main .dude {
+    width: 100vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+}
+.results .dude {
+    width: 100%;
+    position: relative;
+    display: grid;
+    top: 20em;
+}
+.main .dude img {
+    width: 100%;
+}
+.results .dude img {
+    width: 50%;
+    justify-self: center;
+}
+
+.double-border {
+    border: solid 1px white;
+    width: calc(100vw - calc(var(--padding) * 2));
+    height: calc(100vh - calc(var(--padding) * 2));
+    position: absolute;
+    top: 2.5em;
+    left: 2.5em;
+}
+.double-border.offset {
+    top: 3.5em;
+    left: 3.5em;
+}
+
+section.main {
+    width: 100%;
+    height: 100%;
+    display: grid;
+}
+
+.main .banner {
+    width: 100%;
+    align-self: center;
+    text-align: center;
+    display: grid;
+    padding: var(--padding);
+    position: relative;
+}
+.main .banner > * {
+    z-index: 1;
+}
+.main .banner .backdrop {
+    backdrop-filter: blur(10px);
+    position: absolute;
+    opacity: 0.5;
+    background-color: var(--black);
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+.banner .questions {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.banner .question {
+    margin: var(--padding) 0;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    max-width: 30em;
+}
+.banner .answers {
+    padding-top: var(--padding);
+    display: flex;
+    flex-direction: column;
+    max-width: 30em;
+    justify-self: center;
+}
+.banner .answers .answer {
+    
+}
+
+/* TIMELINE */
+
+.timeline {
+    width: 100%;
+    display: grid;
+    grid-template-columns: min-content auto min-content;
+}
+.timeline .markers {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    justify-items: center;
+}
+.timeline .markers div {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 100%;
+    background-color: transparent;
+    border: solid 1px var(--white);
+}
+.timeline .markers div.active {
+    background-color: var(--white);
+}
+.timeline .time-marks {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.timeline .time-marks img {
+    width: 2em;
+}
+.timeline .time-marks :first-child {
+    justify-self: left;
+}
+.timeline .time-marks :last-child {
+    justify-self: right;
+}
+/*STATS*/
+
+.results .tag {
+    border: solid 2px var(--white);
+    padding: calc( var(--padding) / 4) calc( var(--padding) / 2);
+    color: var(--white);
+    background-color: var(--impactcolour);
+    margin: 0.5em;
+    font-size: 1em;
+    display: inline-block;
+}
+.results .scale {
+    position: absolute;
+    z-index: 1;
+    max-width: 15em;
+}
+.results .scale h3 {
+    margin-bottom: 1em;
+}
+.results .scale.one {
+    top: 16em;
+    right: 8em;
+}
+.results .scale.two {
+    top: 30em;
+    left: 8em;
+}
+.results .scale.three {
+    top: 48em;
+    right: 4em;
+}
+.results .scale.four {
+    top: 8em;
+    left: 10em;
+}
+.results .scale .range {
+    width: var(--scalewidth);
+}
+.results .scale .markers {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+}
+.results .scale .markers.negative {
+    width: calc(var(--scalewidth) / 2);
+    flex-direction: row-reverse;
+}
+.results .scale .markers.positive {
+    width: calc(var(--scalewidth) / 2);
+    margin-left: calc(var(--scalewidth) / 2);
+}
+.results .scale .markers div {
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+    background-color: var(--impactcolour);
+    margin: 0.2em;
+}
+.results .scale .markers.positive div.half {
+    border-radius: 2em 0 0 2em;
+    width: 0.5em;
+}
+.results .scale .markers.negative div.half {
+    border-radius: 0 2em 2em 0;
+    width: 0.5em;
+}
+.results .scale .label {
+    text-align: center;
+}
+.results .traits {
+    padding: var(--padding);
+}
+
+.results .youare {
+    top: 30em;
+    position: relative;
+}

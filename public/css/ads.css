@@ -1,0 +1,367 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.adCont {
+  position: absolute;
+  width: 80%;
+  background-color: black;
+}
+#adContainer1 {
+  top:0;
+  left:0;
+  z-index: 1;
+}
+#adContainer2 {
+  top:10em;
+  left:6em;
+  z-index: 2;
+}
+#adContainer3 {
+  top:2em;
+  right:0;
+  z-index: 3;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+h1 {
+  font-weight: bold;
+
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 2em;
+  padding: 20px 10px;
+}
+
+ul {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+li {
+  text-align: left;
+}
+
+.socialheading {
+  font-size: 3.25em;
+  font-weight: bold;
+  width: 600px;
+  text-align: left;
+  width: 450px;
+  /* display: inline-block; */
+}
+
+.likes {
+  margin-top: 20px;
+}
+
+.socialtxt {
+  transform: translate(50px, 80px);
+}
+
+.fml {
+  text-align: left;
+  float: right;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+.car {
+  width: 350px;
+}
+
+.free {
+  position: absolute;
+  font-size: 48px;
+  font-weight: bold;
+  transform: translate(250px) rotate(-25deg);
+
+}
+
+.textb {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  left: 0;
+}
+
+.carbutton {
+  position: absolute;
+  width: 200px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 25px;
+  border: solid white 2px;
+  padding: 10px;
+}
+
+/* Container Border */
+.popbox {
+  margin: 15px;
+  width: 90%;
+  height: 550px;
+  position: relative;
+  border: solid white 2px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.topbar {
+  width: auto;
+  border-bottom: solid white 2px;
+  padding: 10px 5px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.closebtn {
+  color: white;
+  text-decoration: none;
+  background-color: black;
+  border: none;
+  font-size: 1em;
+  margin: 0 15px;
+
+
+
+}
+
+.forumbox {
+  padding: 10px 20px;
+  font-size: 1.75em;
+  border: solid white 2px;
+  width: 600px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.forumcontainer {
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.socialicon {
+  width: 25%;
+  float: right;
+  margin-right: 50px;
+  transform: translate(-100px, -200px);
+}
+
+.netflix_title {
+  background-color: red;
+  padding-top: 20px;
+  margin-top: -20px;
+  text-align: center;
+}
+
+.netflixlogo {
+  width: 20%;
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+}
+
+.musichead {
+  font-size: 3.5em;
+  transform: translate(0px, 70px);
+  font-weight: bold;
+}
+
+.musiclogo {
+  width: 20%;
+  transform: translate(0px, 50px);
+  margin-bottom: 20px;
+}
+
+.musicbutton {
+  width: 15%;
+  margin-top: 20px;
+}
+
+.hottify {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.prestotxt {
+  font-size: 1.75em;
+  text-align: left;
+  margin-left: 20px;
+  transform: translate(25px, 100px);
+}
+
+.prestologo {
+  font-size: 1.5em;
+  transform: translate(0px, 100px);
+}
+
+.cardanim {
+  width: 30%;
+  float: right;
+  transform: translate(-50px, -120px);
+}
+
+.bikegif {
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 25px;
+}
+
+.bikehead {
+  font-size: 2.5em;
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+
+}
+
+.biketxt {
+  font-size: 2.5em;
+  font-family: 'Arial';
+  font-weight: bold;
+  position: absolute;
+  top: 200px;
+  left: 50px;
+  z-index: 5;
+  text-align: left;
+}
+
+.bikepic {
+  width: 80%;
+  float: right;
+  transform: translate(0px, -10px);
+}
+
+.blue {
+  color: blue;
+}
+
+.black {
+  color: black;
+}
+
+.ontop {
+  position: absolute;
+  z-index: 10;
+}
+
+.onbottom {
+  position: absolute;
+  z-index: -10;
+}
+
+.centrealign {
+  text-align: center;
+}
+
+.leftalign {
+  text-align: left;
+}
+
+.bigtext {
+  font-size: 5rem;
+}
+
+.notasbigtext {
+  font-size: 2.5rem;
+}
+
+.nomargin {
+  margin: 0 !important;
+}
+
+.normalweight {
+  font-weight: normal;
+}
+
+.topleft {
+  left: 50px;
+  top: 50px;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.bottomright {
+  right: 0;
+  bottom: 0;
+}
+
+.bottomright-margin {
+  right: 50px;
+  bottom: 60px;
+}
+
+.bringup {
+  margin-top: -5rem;
+}
+
+.bringupmore {
+  margin-top: -10rem;
+}
+
+.moveleft {
+  margin-left: -1.5rem;
+}
+
+.moveleftmore {
+  margin-left: -4rem;
+}
+
+.ninetypercentsize {
+  width: 90%;
+  height: auto;
+}
+
+.halfsize {
+  width: 50%;
+  height: auto;
+}
+
+.thirdsize {
+  width: 33%;
+  height: auto;
+}
+
+.blockdisplay {
+  display: block;
+}
+
+.topmargin {
+  margin-top: 2rem;
+}
+
+.marginleft {
+  margin-left: 2rem;
+}
+
+.margintop {
+  margin-top: 2rem;
+}
+
+.boxedtext {
+  max-width: 300px;
+  text-align: left;
+}
+
+.textstroke {
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="410.148" height="95.404" viewBox="0 0 410.148 95.404">
+  <g id="Group_5" data-name="Group 5" transform="translate(-412 -1826.557)">
+    <g id="Path_3" data-name="Path 3" transform="translate(412 1791.952)" fill="none">
+      <path d="M58.453,75.566H296.646l-58.453,53.1H0Z" stroke="none"/>
+      <path d="M 59.22593688964844 77.56578063964844 L 5.175933837890625 126.6670837402344 L 237.4204864501953 126.6670837402344 L 291.4705200195312 77.56578063964844 L 59.22593688964844 77.56578063964844 M 58.45315551757812 75.56578063964844 L 296.6464538574219 75.56578063964844 L 238.1932678222656 128.6670837402344 L 0 128.6670837402344 L 58.45315551757812 75.56578063964844 Z" stroke="none" fill="#fff"/>
+    </g>
+    <g id="Path_4" data-name="Path 4" transform="translate(525.501 1751.987)" fill="none">
+      <path d="M58.453,75.566H296.646l-58.453,53.1H0Z" stroke="none"/>
+      <path d="M 59.22593688964844 77.56578063964844 L 5.175933837890625 126.6670837402344 L 237.4204864501953 126.6670837402344 L 291.4705200195312 77.56578063964844 L 59.22593688964844 77.56578063964844 M 58.45315551757812 75.56578063964844 L 296.6464538574219 75.56578063964844 L 238.1932678222656 128.6670837402344 L 0 128.6670837402344 L 58.45315551757812 75.56578063964844 Z" stroke="none" fill="#fff"/>
+    </g>
+    <line id="Line_1" data-name="Line 1" y1="39.965" x2="112.702" transform="translate(468.351 1827.5)" fill="none" stroke="#fff" stroke-width="2"/>
+    <line id="Line_2" data-name="Line 2" y1="39.965" x2="112.702" transform="translate(708.942 1827.5)" fill="none" stroke="#fff" stroke-width="2"/>
+    <line id="Line_3" data-name="Line 3" y1="39.965" x2="112.702" transform="translate(658.586 1881.053)" fill="none" stroke="#fff" stroke-width="2"/>
+    <line id="Line_4" data-name="Line 4" y1="39.965" x2="112.702" transform="translate(426.787 1881.053)" fill="none" stroke="#fff" stroke-width="2"/>
+  </g>
+</svg>

@@ -2,9 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" /> -->
+    <meta name="viewport" content="user-scalable=no" />
     <meta name="theme-color" content="#000000"/>
-    <title>The Watcher / POV</title>
+    <title>The Watcher</title>
     <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
@@ -12,7 +13,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
   </head>
   <body id="view">
-    <h1>Index</h1>
+    <div class="double-border"></div>
+    <div class="double-border offset"></div>
+    
+    <section class="timeline">
+      <img src="img/icons/sun.svg">
+      <div id="timelineNodes" class="markers">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+      <img src="img/icons/moon.svg">
+    </section>
+    
+    <section id="theMain" class="start">
+      <div class="logo">
+        <img src="img/logo.svg">
+      </div>
+      
+      <img class="step-info" src="img/art/footsteps.svg">
+      
+      <p>
+        Ensure both feet are on the sidewalk, feet spaced evenly apart.
+      </p>
+      
+      <div class="city-back">
+        <img src="img/art/city.svg">
+      </div>
+      
+      <button id="startAll" type="button" class="button large start-btn">Start</button>
+      
+    </section>
+    
     <script src="js/main.js" charset="utf-8"></script>
   </body>
 </html>

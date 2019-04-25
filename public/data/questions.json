@@ -1,0 +1,571 @@
+{
+    "questions" : [
+        {
+            "id":101,
+            "question": "Are you on social media within 5 minutes of waking up?",
+            "sub":"This is an optional subtext.",
+            "answers": [
+                {
+                    "id":201,
+                    "label":"Always",
+                    "frugality":null, "health":-1, "environment": null,
+                    "personality": [
+                        "social",
+                        "techy",
+                        "depressed"
+                    ],
+                    "age":["young", "young"],
+                    "ad":501
+                },
+                {
+                    "id":202,
+                    "label":"Sometimes",
+                    "frugality":null, "health":0, "environment": null,
+                    "personality": null,
+                    "age":["young", "old"],
+                    "ad":509
+                },
+                {
+                    "id":203,
+                    "label":"Never",
+                    "frugality":null, "health":1, "environment": null,
+                    "personality": [
+                        "unpopular",
+                        "nontechy",
+                        "happy",
+                        "tech-conscious"
+                    ],
+                    "age":["old"],
+                    "ad":502
+                }
+            ]
+        },
+        {
+            "id":102,
+            "question": "Where do you get breakfast?",
+            "sub": null,
+            "answers": [
+                {
+                    "id":201,
+                    "label":"Fast Food (Tims, etc.)",
+                    "frugality":0, "health":-1, "environment": -0.5,
+                    "personality": [
+                        "prefers convenience"
+                    ],
+                    "age":["young"],
+                    "ad":512
+                },
+                {
+                    "id":202,
+                    "label":"Café (Starbucks, etc.)",
+                    "frugality":-0.5, "health":0, "environment": null,
+                    "personality": [
+                        "hipster"
+                    ],
+                    "age":null,
+                    "ad":513
+                },
+                {
+                    "id":203,
+                    "label":"At Home",
+                    "frugality":0.5, "health":1, "environment": 0.5,
+                    "personality": [
+                        "resourceful",
+                        "independent",
+                        "responsible",
+                        "responsible"
+                    ],
+                    "age":null,
+                    "ad":523
+                },
+                {
+                    "id":204,
+                    "label":"I Don't",
+                    "frugality":1, "health":-1, "environment": 1,
+                    "personality": [
+                        "irresponsible",
+                        "irresponsible",
+                        "prefers convenience",
+                        "depressed"
+                    ],
+                    "age":["young"],
+                    "ad":505
+                }
+            ]
+        },
+        {
+            "id":103,
+            "question": "How do you usually commute to work/school?",
+            "sub": "If a mix, then choose the one that's most prevalent.",
+            "answers": [
+                {
+                    "id":201,
+                    "label":"Personal Vehicle",
+                    "frugality":-0.5, "health":-0.5, "environment": -1,
+                    "personality": [
+                        "traditional",
+                        "prefers convenience",
+                        "prefers convenience"
+                    ],
+                    "age":["old"],
+                    "ad":515
+                },
+                {
+                    "id":202,
+                    "label":"Transit",
+                    "frugality":null, "health":null, "environment": 0.5,
+                    "personality": null,
+                    "age":null,
+                    "ad":506
+                },
+                {
+                    "id":203,
+                    "label":"Walk",
+                    "frugality":1, "health":0.5, "environment": 1,
+                    "personality": null,
+                    "age":null,
+                    "ad":514
+                },
+                {
+                    "id":204,
+                    "label":"Bike",
+                    "frugality":0.5, "health":1, "environment": 1,
+                    "personality": [
+                        "athletic"
+                    ],
+                    "age":["young"],
+                    "ad":507
+                }
+            ]
+        },
+        {
+            "id":104,
+            "question": "How do you eat lunch?",
+            "sub": null,
+            "answers": [
+                {
+                    "id":201,
+                    "label":"Alone",
+                    "frugality":null, "health":null, "environment":null,
+                    "personality": [
+                        "introverted",
+                        "antisocial",
+                        "resourceful",
+                        "independent",
+                        "independent",
+                        "anxious"
+                    ],
+                    "age":null,
+                    "ad":506
+                },
+                {
+                    "id":202,
+                    "label":"With peers",
+                    "frugality":null, "health":null, "environment": null,
+                    "personality": [
+                        "happy",
+                        "social",
+                        "social"
+                    ],
+                    "age":null,
+                    "ad":507
+                },
+                {
+                    "id":203,
+                    "label":"At home",
+                    "frugality":1, "health":null, "environment": null,
+                    "personality": null,
+                    "age":null,
+                    "ad":508
+                },
+                {
+                    "id":204,
+                    "label":"Work through it",
+                    "frugality":0.5, "health":-1, "environment": null,
+                    "personality": [
+                        "responsible"
+                    ],
+                    "age":["young"],
+                    "ad":508
+                }
+            ]
+        },
+        {
+            "id":105,
+            "question": "How do you listen to music?",
+            "sub": null,
+            "answers": [
+                {
+                    "id":201,
+                    "label":"Streaming/Downloaded",
+                    "frugality":0.5, "health":null, "environment":null,
+                    "personality": [
+                        "techy",
+                        "cultured",
+                        "nontraditional",
+                        "nontraditional"
+                    ],
+                    "age": ["young", "young"],
+                    "ad":505
+                },
+                {
+                    "id":202,
+                    "label":"Radio",
+                    "frugality":1, "health":null, "environment": null,
+                    "personality": [
+                        "prefers convenience",
+                        "traditional",
+                        "traditional"
+                    ],
+                    "age":["old"],
+                    "ad":507
+                },
+                {
+                    "id":203,
+                    "label":"Vinyl/CD/Casette",
+                    "frugality":-1, "health":null, "environment": null,
+                    "personality": [
+                        "cultured",
+                        "cultured",
+                        "hipster",
+                        "traditional"
+                    ],
+                    "age":["old"],
+                    "ad":508
+                },
+                {
+                    "id":204,
+                    "label":"Rarely listen to music",
+                    "frugality":1, "health":null, "environment": null,
+                    "personality": [
+                        "independent",
+                        "uncultured",
+                        "sad"
+                    ],
+                    "age":["young", "old"],
+                    "ad":510
+                }
+            ]
+        },
+        {
+            "id":106,
+            "question": "When online, what do you do most often?",
+            "sub": null,
+            "answers": [
+                {
+                    "id":201,
+                    "label":"Social Media",
+                    "frugality":null, "health":-0.5, "environment":null,
+                    "personality": [
+                        "social",
+                        "social",
+                        "insecure"
+                    ],
+                    "age": ["young"],
+                    "ad":503
+                },
+                {
+                    "id":202,
+                    "label":"Forums",
+                    "frugality":null, "health":null, "environment": null,
+                    "personality": [
+                        "techy",
+                        "techy",
+                        "focussed",
+                        "focussed"
+                    ],
+                    "age":["old", "young"],
+                    "ad":502
+                },
+                {
+                    "id":203,
+                    "label":"Gaming",
+                    "frugality":-0.5, "health":-0.5, "environment": null,
+                    "personality": [
+                        "techy",
+                        "techy",
+                        "gamer",
+                        "focussed",
+                        "gamer",
+                        "focussed",
+                        "happy"
+                    ],
+                    "age":["young"],
+                    "ad":517
+                },
+                {
+                    "id":204,
+                    "label":"Media/Entertainment",
+                    "frugality":-0.5, "health":null, "environment": null,
+                    "personality": [
+                        "nontraditional"
+                    ],
+                    "age":["young", "old"],
+                    "ad":508
+                },
+                {
+                    "id":205,
+                    "label":"I don't go online much",
+                    "frugality":null, "health":0.5, "environment": 0.5,
+                    "personality": [
+                        "traditional",
+                        "traditional",
+                        "nontechy",
+                        "nontechy",
+                        "happier"
+                    ],
+                    "age":["old", "old"],
+                    "ad":508
+                }
+            ]
+        },
+        {
+            "id":107,
+            "question": "How often do you exercise?",
+            "sub": null,
+            "answers": [
+                {
+                    "id":201,
+                    "label":"Almost Daily",
+                    "frugality":-0.5, "health":1, "environment":null,
+                    "personality": [
+                        "responsible",
+                        "hypersexual",
+                        "focussed",
+                        "focussed"
+                    ],
+                    "age": ["young", "old"],
+                    "ad":516
+                },
+                {
+                    "id":202,
+                    "label":"Few times a week",
+                    "frugality":null, "health":1, "environment": null,
+                    "personality": [
+                        "focussed",
+                        "responsible",
+                        "responsible"
+                    ],
+                    "age":null,
+                    "ad":516
+                },
+                {
+                    "id":203,
+                    "label":"Weekly",
+                    "frugality":null, "health":0.5, "environment": null,
+                    "personality": [
+                        "responsible"
+                    ],
+                    "age":null,
+                    "ad":508
+                },
+                {
+                    "id":204,
+                    "label":"Rarely",
+                    "frugality":1, "health":-1, "environment": null,
+                    "personality": [
+                        "irresponsible",
+                        "irresponsible"
+                    ],
+                    "age":null,
+                    "ad":508
+                }
+            ]
+        },
+        {
+            "id":108,
+            "question": "Where do you eat dinner?",
+            "sub": null,
+            "answers": [
+                {
+                    "id":201,
+                    "label":"At home",
+                    "frugality":1, "health":1, "environment":1,
+                    "personality": [
+                        "responsible",
+                        "responsible",
+                        "resourceful",
+                        "resourceful"
+                    ],
+                    "age": null,
+                    "ad":506
+                },
+                {
+                    "id":202,
+                    "label":"Eat out",
+                    "frugality":-1, "health":-0.5, "environment": -0.5,
+                    "personality": [
+                        "social",
+                        "prefers convenience",
+                        "social",
+                        "prefers convenience",
+                        "happy"
+                    ],
+                    "age":["young"],
+                    "ad":521
+                },
+                {
+                    "id":203,
+                    "label":"Don't eat dinner",
+                    "frugality":1, "health":-1, "environment":1,
+                    "personality": [
+                        "irresponsible",
+                        "irresponsible",
+                        "depressed",
+                        "depressed"
+                    ],
+                    "age":null,
+                    "ad":508
+                }
+            ]
+        },
+        {
+            "id":109,
+            "question": "What do you do after dinner?",
+            "sub": null,
+            "answers": [
+                {
+                    "id":201,
+                    "label":"Stay at home",
+                    "frugality":1, "health":null, "environment":0.5,
+                    "personality": [
+                        "responsible",
+                        "introverted",
+                        "introverted",
+                        "antisocial"
+                    ],
+                    "age": null,
+                    "ad":504
+                },
+                {
+                    "id":202,
+                    "label":"Bar/Club",
+                    "frugality":-1, "health":-1, "environment": null,
+                    "personality": [
+                        "social",
+                        "extroverted",
+                        "extroverted",
+                        "social",
+                        "hypersexual",
+                        "happy"
+                    ],
+                    "age":["young", "young"],
+                    "ad":508
+                },
+                {
+                    "id":203,
+                    "label":"Errands",
+                    "frugality":1, "health":-1, "environment":1,
+                    "personality": [
+                        "responsible",
+                        "responsible",
+                        "independent",
+                        "independent"
+                    ],
+                    "age":["old"],
+                    "ad":508
+                },
+                {
+                    "id":204,
+                    "label":"Hangout with friends",
+                    "frugality":1, "health":-1, "environment":1,
+                    "personality": [
+                        "social",
+                        "social",
+                        "happy"
+                    ],
+                    "age":["young"],
+                    "ad":518
+                }
+            ]
+        },
+        {
+            "id":110,
+            "question": "What do you wear to bed?",
+            "sub": null,
+            "answers": [
+                {
+                    "id":201,
+                    "label":"Nude",
+                    "frugality":null, "health":null, "environment":0.5,
+                    "personality": [
+                        "confident",
+                        "confident",
+                        "hypersexual"
+                    ],
+                    "age": null,
+                    "ad":506
+                },
+                {
+                    "id":202,
+                    "label":"Sleepwear/Underwear",
+                    "frugality":null, "health":null, "environment": null,
+                    "personality": [
+                        "responsible",
+                        "responsible",
+                        "traditional",
+                        "traditional"
+                    ],
+                    "age":null,
+                    "ad":507
+                },
+                {
+                    "id":203,
+                    "label":"Regular Clothes",
+                    "frugality":1, "health":-1, "environment":1,
+                    "personality": [
+                        "prefers convenience",
+                        "prefers convenience",
+                        "depressed",
+                        "depressed"
+                    ],
+                    "age":["young"],
+                    "ad":508
+                }
+            ]
+        },
+        {
+            "id":110,
+            "question": "How many pillows do you use?",
+            "sub": null,
+            "answers": [
+                {
+                    "id":201,
+                    "label":"None",
+                    "frugality":0.5, "health":-0.5, "environment":null,
+                    "personality": [
+                        "irresponsible",
+                        "irresponsible"
+                    ],
+                    "age": null,
+                    "ad":519
+                },
+                {
+                    "id":202,
+                    "label":"One",
+                    "frugality":null, "health":null, "environment": null,
+                    "personality": [
+                        "practical",
+                        "practical",
+                        "lonely",
+                        "prefers convenience"
+                    ],
+                    "age":null,
+                    "ad":520
+                },
+                {
+                    "id":203,
+                    "label":"Two or more",
+                    "frugality":-0.5, "health":null, "environment":null,
+                    "personality": [
+                        "traditional",
+                        "traditional",
+                        "depressed"
+                    ],
+                    "age":null,
+                    "ad":520
+                }
+            ]
+        }
+    ]
+}
