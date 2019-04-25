@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600|Poppins:300,500,700|Open+Sans:300,200');
+:root {
+    --darkfont: black;
+    
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+html {
+    font: 400 1em/var(--linespace) var(--content);
+}
+
+::selection {
+    background-color: var(--highlightcolor);
+    color: var(--lightfont);
+}
+.highlighted {
+    background-color: rgba(51, 97, 242, 0.9);
+    color: var(--lightfont);
+}
+  
+html, body {
+    height: 100%;
+}
+  
+  body {
+    background-color: var(--bgcolor);
+    color: var(--darkfont);
+    overflow-x: hidden;
+    user-select: auto !important;
+    -moz-user-select: auto !important;
+  }
+  
+  h1, h2 {
+      font: 700 2.25em/1.3 var(--heading);
+  }
+  h2 {
+      font-size: 1.25em;
+      margin-bottom: 0.7em;
+  }
+  h3 {
+    font: 300 0.75em var(--subheading);
+  }
+  h4 {
+    font: 600 0.75em var(--subheading);
+  }
+  h5 {
+    font: 600 0.6em "Helvetica";
+  }
+  h5 span {
+    font-weight: 300;
+  }
+  p {
+    font-size: 0.75em;
+  }
