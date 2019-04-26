@@ -3,6 +3,7 @@ const theMain = document.getElementById("theMain");
 const timeline = document.getElementById("timelineNodes");
 let allQuestions;
 let questionsDom;
+let stepInfo;
 
 $("#makeFull").click(function() {
   if (screenfull.enabled) {
@@ -28,6 +29,18 @@ let metrics = {
     age: []    //5
 }
 
+const myLoop = setInterval(anims, 300);
+
+function anims() {
+    
+  $.getJSON('data/stepping.json', function(result) {   
+      //clone array
+      stepInfo = result.step;
+      console.log(stepInfo);
+      
+  });
+}
+
 $.getJSON('data/questions.json', function(result) {
     
   //clone array
@@ -42,9 +55,35 @@ startBtn.addEventListener("click", _ => {
   theMain.className = "main";
   
   // questions();
-  ready();
+  splashScreen();
   
 });
+
+const splashScreen = _ => {
+  
+  theMain.innerHTML = splashPage();
+  
+  //on walk
+  let stepPos = 0;
+  
+  const stepLoop = setInterval(animsx, 300);
+
+  function animsx() {
+    if (stepInfo == "right") {
+      stepPos++;
+    }
+    if (stepPos == 3) {
+      walking = true;
+      console.log(stepPos);
+      
+      setTimeout(_ => {
+        ready();
+        clearInterval(stepLoop);
+      },500);
+      
+    }
+  }
+}
 
 const generateQuestion = _ => {
   questionsDom.innerHTML = QuestionTemplate(allQuestions[pos]);
@@ -73,8 +112,9 @@ const ready = _ => {
 
         if (!e.target.matches("button")) return;
         
-        equateMetrics(e.target.dataset.id, e.target.parentElement.dataset.id, allQuestions);
         pos++;
+        equateMetrics(e.target.dataset.id, e.target.parentElement.dataset.id, allQuestions);
+        
         
         (pos == questionCount) ? giveResults() : generateQuestion();
         
@@ -113,6 +153,16 @@ const giveResults = () => {
   healthScale = document.getElementById("healthScale");
   ageScale = document.getElementById("ageScale");
   allTraits = document.getElementById("topTraits");
+  
+  const restartBtn = document.getElementById("restartAll");
+  restartBtn.addEventListener("click", e => {
+    postUpdate(0,0);
+    
+    setTimeout( _ => {
+      location.reload(true);
+    },500);
+    
+  });
   
   createProfile(metrics);
   
@@ -309,6 +359,18 @@ const mainPage = props => {
   `)
 }
 
+const splashPage = props => {
+  return (
+    `<section class="splash">
+      <h2>Imagine an ordinary day in your life, and answer as such.</h2>
+      <div class="walktostart">
+        <img src="img/art/stepping.gif">
+        <h2>Walk To Start</h2>
+      </div>
+    </section>`
+  )
+}
+
 const resultsPage = props => {
     return (
         `
@@ -323,6 +385,7 @@ const resultsPage = props => {
                 <div id="ecScale" class="markers">
                 </div>
                 <div class="label">
+                  <h4>|</h4>
                   <h4>0</h4>
                 </div>
               </div>
@@ -334,6 +397,7 @@ const resultsPage = props => {
               <div id="frugScale" class="markers">
               </div>
               <div class="label">
+                <h4>|</h4>
                 <h4>0</h4>
               </div>
             </div>
@@ -345,6 +409,7 @@ const resultsPage = props => {
               <div id="healthScale" class="markers">
               </div>
               <div class="label">
+                <h4>|</h4>
                 <h4>0</h4>
               </div>
             </div>
@@ -365,7 +430,7 @@ const resultsPage = props => {
           </div>
           
         </section>
-        <button id="restartAll" class="button large" type="button>Restart</button>
+        <button id="restartAll" class="button large restart" type="button">Restart</button>
         
       </section>
         `
