@@ -12,6 +12,13 @@ let prevInfo = {
 }
 let cPos = 1;
 
+$("#makeFull").click(function() {
+    if (screenfull.enabled) {
+    screenfull.request();
+    }
+    $("#makeFull").hide();
+  });
+
 function anims() {
     
     $.getJSON('data/updates.json', function(result) {   

@@ -1,9 +1,15 @@
 const startBtn = document.getElementById("startAll");
 const theMain = document.getElementById("theMain");
 const timeline = document.getElementById("timelineNodes");
-const restartBtn;
 let allQuestions;
 let questionsDom;
+
+$("#makeFull").click(function() {
+  if (screenfull.enabled) {
+  screenfull.request();
+  }
+  $("#makeFull").hide();
+});
 
 let ecScale;
 let frugScale;
@@ -107,13 +113,6 @@ const giveResults = () => {
   healthScale = document.getElementById("healthScale");
   ageScale = document.getElementById("ageScale");
   allTraits = document.getElementById("topTraits");
-  
-  restartBtn = document.getElementById("restartAll");
-  restartBtn.addEventListener("click", e => {
-    postUpdate(0, 0);
-    //force refresh
-    location.reload(true);
-  });
   
   createProfile(metrics);
   

@@ -21,6 +21,12 @@
     --scalewidth: 12em;
 }
 
+#makeFull {
+    position: absolute;
+    top:0;
+    left: 0;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -117,6 +123,10 @@ button.button.important:hover {
 .title {
     text-align: center;
     margin-top: 1em;
+}
+
+.make-wide {
+    width: 100%;
 }
 
 .start {
