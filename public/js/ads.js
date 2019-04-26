@@ -14,7 +14,7 @@ let cPos = 1;
 
 $("#makeFull").click(function() {
     if (screenfull.enabled) {
-    screenfull.request();
+        screenfull.request();
     }
     $("#makeFull").hide();
   });

@@ -29,11 +29,4 @@ module.exports = function(app) {
     var writeJson = JSON.stringify(req.body);
     fs.writeFileSync('./public/data/updates.json', writeJson, 'utf8');
   });
-
-  // app.get("/:project", function(req, res) {
-  //   res.render("index", {project:req.params.project});
-  // });
-  
-
-
 };
