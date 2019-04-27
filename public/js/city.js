@@ -9,19 +9,20 @@ $("#makeFull").click(function() {
 });
 
 let myInfo;
-let prevInfo = {pos:0};
+let prevInfo = 0;
+let xPos;
 
 function anims() {
-    
     $.getJSON('data/updates.json', function(result) {   
         //clone array
         myInfo = result.city;
+        xPos = parseInt(result.city.pos);
     });
     
-    if (prevInfo.pos !== Number(myInfo.pos)) {
+    if (prevInfo != xPos) {
         console.log("okay");
         
-        prevInfo = myInfo;
+        prevInfo = xPos;
         switchVideos();
     }
 }
@@ -29,12 +30,35 @@ function anims() {
 const switchVideos = () => {
     //by default, play first reveal and loop
     //then play the next one based on myInfo.pos
-        vidH.innerHTML = buildVideoTagR(myInfo.pos);
+    vidH.innerHTML = buildVideoTagLoop(myInfo.pos);
+}
+
+
+
+const buildVideoTagLoop = p => { 
+    let sourceFirst = `img/city/R${p}.mp4`;
+    let sourceLoop = `img/city/L${p}.mp4`;
+
+    video_count = 1;
+    videoPlayer = document.getElementById("videoContainer");
+    
+    function run() {
+        videoPlayer.src = sourceLoop;
+        videoPlayer.play();
+        console.log("ffuck");
+        
+    };
+
+    return (
+        `<video id="videoContainer" autoplay mute onended="run()">
+            <source src="${sourceFirst}" type="video/mp4">
+        </video>`
+    )
 }
 
 const buildVideoTagR = p => {
         
-        let source = `img/city/R${p}.mp4`
+        let source = `img/city/R${p}.mp4`;
         
         return (
             `<video autoplay mute>
@@ -43,15 +67,15 @@ const buildVideoTagR = p => {
         )
 }
 
-const buildVideoTagLoop = p => {
+// const buildVideoTagLoop = p => {
         
-    let source = `img/city/L${p}.mp4`;
+//     let source = `img/city/L${p}.mp4`;
     
-    return (
-        `<video autoplay loop mute>
-            <source src="${source}" type="video/mp4">
-        </video>`
-    )
-}
+//     return (
+//         `<video autoplay loop mute>
+//             <source src="${source}" type="video/mp4">
+//         </video>`
+//     )
+// }
 
 switchVideos();

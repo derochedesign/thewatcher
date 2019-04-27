@@ -160,7 +160,7 @@ const giveResults = () => {
     
     setTimeout( _ => {
       location.reload(true);
-    },500);
+    },300);
     
   });
   

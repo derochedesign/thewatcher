@@ -21,6 +21,23 @@
     --scalewidth: 12em;
 }
 
+.splash .walktostart {
+    display: grid;
+    padding-top: 10em;
+}
+.splash h2 {
+    text-align: center;
+    padding: 4em;
+}
+.splash :first-child {
+    margin-top: 10em;
+}
+.splash .walktostart img {
+    width: 10em;
+    margin: 0 auto;
+    justify-self: center;
+}
+
 #makeFull {
     position: absolute;
     top:0;

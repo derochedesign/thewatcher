@@ -1,6 +1,5 @@
 var bodyParser = require("body-parser");
 var fs = require('fs');
-var reload = require('reload');
 
 var urlencode = bodyParser.urlencoded({extended: true});
 
