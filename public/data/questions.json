@@ -197,7 +197,7 @@
             "answers": [
                 {
                     "id":201,
-                    "label":"Streaming/Downloaded",
+                    "label":"Streaming or Downloaded",
                     "frugality":0.5, "health":null, "environment":null,
                     "personality": [
                         "techy",
@@ -222,7 +222,7 @@
                 },
                 {
                     "id":203,
-                    "label":"Vinyl/CD/Casette",
+                    "label":"Vinyl, CD, or Casette",
                     "frugality":-1, "health":null, "environment": null,
                     "personality": [
                         "cultured",
@@ -295,7 +295,7 @@
                 },
                 {
                     "id":204,
-                    "label":"Media/Entertainment",
+                    "label":"Media / Entertainment",
                     "frugality":-0.5, "health":null, "environment": null,
                     "personality": [
                         "nontraditional"
@@ -439,7 +439,7 @@
                 },
                 {
                     "id":202,
-                    "label":"Bar/Club",
+                    "label":"Bar or Club",
                     "frugality":-1, "health":-1, "environment": null,
                     "personality": [
                         "social",
@@ -498,7 +498,7 @@
                 },
                 {
                     "id":202,
-                    "label":"Sleepwear/Underwear",
+                    "label":"Sleepwear or Underwear",
                     "frugality":null, "health":null, "environment": null,
                     "personality": [
                         "responsible",

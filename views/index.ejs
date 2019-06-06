@@ -14,8 +14,21 @@
     <script src="js/screenfull.js"></script>
   </head>
   <body id="view">
-    <div class="double-border"></div>
-    <div class="double-border offset"></div>
+    
+    <audio id="voiceAudio">
+      <source src="sounds/voice/intro.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    
+    <audio id="effectAudio">
+      <source src="sounds/ding.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    
+    <div class="walk-btn" id="walkBtn">
+      <button class="button">Walk One Step</button>
+    </div>
+    
     <div id="makeFull">full</div>
     <section class="timeline">
       <img src="img/icons/sun.svg">
@@ -37,17 +50,18 @@
     
     <section id="theMain" class="start">
       <div class="logo">
-        <img src="img/logo.svg">
+        <img src="img/logo-text.svg">
       </div>
       
       <img class="step-info" src="img/art/footsteps.svg">
       
-      <p>
-        Ensure both feet are on the sidewalk, feet spaced evenly apart.
-      </p>
+      <p>Ensure both feet are on the sidewalk, feet spaced evenly apart.</p>
       
       <div class="city-back">
         <img src="img/art/city.svg">
+        <video id="introVid" mute autoplay="autoplay" loop>
+          <source src="img/art/cityintro.mp4" type="video/mp4"></source>
+        </video>
       </div>
       
       <button id="startAll" type="button" class="button large start-btn">Start</button>

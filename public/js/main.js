@@ -1,6 +1,8 @@
 const startBtn = document.getElementById("startAll");
 const theMain = document.getElementById("theMain");
 const timeline = document.getElementById("timelineNodes");
+const btnAud = document.getElementById("effectAudio");
+let root = document.documentElement;
 let allQuestions;
 let questionsDom;
 let stepInfo;
@@ -10,6 +12,7 @@ $("#makeFull").click(function() {
   screenfull.request();
   }
   $("#makeFull").hide();
+  document.getElementById("introVid").play();
 });
 
 let ecScale;
@@ -19,6 +22,7 @@ let ageScale;
 let allTraits;
 
 let pos = 0;
+let audPos = 0;
 
 //init metrics
 let metrics = {
@@ -29,24 +33,13 @@ let metrics = {
     age: []    //5
 }
 
-const myLoop = setInterval(anims, 300);
-
-function anims() {
-    
-  $.getJSON('data/stepping.json', function(result) {   
-      //clone array
-      stepInfo = result.step;
-      console.log(stepInfo);
-      
-  });
-}
+const voiceAudio = ["intro","ques","analyze","complete","existing","final"];
 
 $.getJSON('data/questions.json', function(result) {
     
   //clone array
   allQuestions = result.questions.splice(0);
   console.log(allQuestions);
-      
 });
 
 startBtn.addEventListener("click", _ => {
@@ -54,35 +47,85 @@ startBtn.addEventListener("click", _ => {
   theMain.innerHTML = "";
   theMain.className = "main";
   
-  // questions();
-  splashScreen();
+  theMain.innerHTML = splashPage();
+  handleSounds(0, false);
+  document.getElementById("splashVid").play();
+  document.getElementById("splashVid").onended = _ => {
+    document.getElementById("walkToStart").style.display = "grid";
+    checkWalking(1, ready);
+  };
+  
   
 });
 
-const splashScreen = _ => {
-  
-  theMain.innerHTML = splashPage();
-  
-  //on walk
-  let stepPos = 0;
-  
-  const stepLoop = setInterval(animsx, 300);
-
-  function animsx() {
-    if (stepInfo == "right") {
-      stepPos++;
-    }
-    if (stepPos == 3) {
-      walking = true;
-      console.log(stepPos);
-      
-      setTimeout(_ => {
-        ready();
-        clearInterval(stepLoop);
-      },500);
-      
-    }
+document.addEventListener("click", e => {
+  if (e.target.matches(".button")) {
+    btnAud.play();
   }
+  if (e.target.matches("#viewResults")) {
+    giveResults();
+  }
+  if (e.target.matches("#walkBtn")) {
+    
+  }
+})
+
+const handleSounds = (sPos, q) => {
+  const a1 = document.getElementById("voiceAudio");
+  
+  if (q) {
+    a1.setAttribute("src", `sounds/voice/${voiceAudio[sPos]}${pos+1}.mp3`);
+  }
+  else {
+    a1.setAttribute("src", `sounds/voice/${voiceAudio[sPos]}.mp3`);
+  }
+  
+  a1.play();
+  if (!q) {
+    audPos++;
+  }
+  
+}
+
+const checkWalking = (steps, func) => {
+    //on walk
+    let stepPos = 0;
+    let prevStep;
+  
+    const stepLoop = setInterval(animsx, 800);
+  
+    function animsx() {
+      $.getJSON('data/stepping.json', function(result) { 
+        
+        stepInfo = result.step;
+        console.log(stepInfo);
+        
+        if (prevStep != stepInfo) {
+          
+          if (stepInfo == "right") {
+            stepPos++;
+            if (func == showComplete) {
+              console.log("esketit");
+              
+              root.style.setProperty('--prog-prog', `${(100/steps)*stepPos}%`);
+            }
+          }
+          if (stepPos == steps) {
+            console.log(stepPos);
+            
+            setTimeout(_ => {
+              func.call();
+              clearInterval(stepLoop);
+            },500);
+            
+          }
+          
+        }
+        console.log("skipping");
+        prevStep = stepInfo;
+        
+      });
+    }
 }
 
 const generateQuestion = _ => {
@@ -106,7 +149,7 @@ const ready = _ => {
     theMain.innerHTML = mainPage();
     questionsDom = document.getElementById("questionHold");
     generateQuestion();
-        
+    handleSounds(1, true);   
     //listen for buttons, get the questions id, and the buttons id
     questionsDom.addEventListener("click", e => {
 
@@ -114,14 +157,10 @@ const ready = _ => {
         
         pos++;
         equateMetrics(e.target.dataset.id, e.target.parentElement.dataset.id, allQuestions);
-        
-        
-        (pos == questionCount) ? giveResults() : generateQuestion();
+        handleSounds(1, true);
+        (pos == questionCount) ? giveAnalyze() : generateQuestion();
         
     });
-    
-    //temp submit buttom
-    
 }
 
 const QuestionTemplate = props => {
@@ -142,9 +181,24 @@ const QuestionTemplate = props => {
     )
 }
 
+const giveAnalyze = () => {
+  theMain.innerHTML = "";
+  theMain.className = "results";
+  
+  theMain.innerHTML = analyzePage();
+  handleSounds(2, false);
+  checkWalking(6, showComplete);
+}
+
+const showComplete = _ => {
+  document.getElementById('completeOverlay').style.display = "grid";
+  handleSounds(3, false);
+}
+
 const giveResults = () => {
   theMain.innerHTML = "";
   theMain.className = "results";
+  handleSounds(4, false);
   
   theMain.innerHTML = resultsPage();
   
@@ -157,10 +211,10 @@ const giveResults = () => {
   const restartBtn = document.getElementById("restartAll");
   restartBtn.addEventListener("click", e => {
     postUpdate(0,0);
-    
+    handleSounds(5, false);
     setTimeout( _ => {
       location.reload(true);
-    },300);
+    },2000);
     
   });
   
@@ -227,9 +281,9 @@ const createProfile = finalMetrics => {
     console.log(`Frugality: (-5) ${newScale.frugality} (5), Health: (-5) ${newScale.health} (5), Environment: (-5) ${newScale.environment} (5)`);
     console.log(`Personality Traits:`,personalityTraits, `Counting Age: `, ageDefine);
     
-    ecScale.innerHTML = buildScale(newScale.environment, ecScale);
-    frugScale.innerHTML = buildScale(newScale.frugality, frugScale);
-    healthScale.innerHTML = buildScale(newScale.health, healthScale);
+    buildScale(newScale.environment, ecScale);
+    buildScale(newScale.frugality, frugScale);
+    buildScale(newScale.health, healthScale);
     
     allTraits.innerHTML = buildTraits(personalityTraits);
     
@@ -271,42 +325,49 @@ const buildTraits = traits => {
 }
 
 const buildScale = (val, elem) => {
+  let mod;
+  (val > 0) ? mod = 1 : mod = -1;
   (val > 0) ? elem.classList.add("positive") : elem.classList.add("negative");
-  console.log(val > 0);
   
   let flatVal = Math.round(val);
   let half = false;
-  let dom = ``;
   
   console.log(`flatVal: ${flatVal} ; val: ${val}`);
   
-  
   let remainder = val-flatVal;
-  (remainder < 0) && (remainder = remainder * -1);
+  remainder = Math.abs(remainder);
   console.log(`remainder: ${remainder}`);
   
-  if (remainder > 0.3 && remainder < 0.7) {
+  if (remainder > 0.25 && remainder < 0.75) {
     //add half at end
     half = true;
   }
-  (flatVal < 0) && (flatVal = flatVal * -1);
-  if (flatVal > val && half) { //round up
-    for (let i = 0; i < flatVal-1; i++) {
-      dom += `<div></div>`;
+  flatVal = Math.abs(flatVal);
+  
+  if (flatVal > Math.abs(val) && half) { //round up
+    for (let i = 0; i < flatVal; i++) {
+      elem.querySelector(`[data-val='${(i+1) * mod}']`).classList.add("active");
+      console.log("rUp for" + i);
+      
     }
+    elem.querySelector(`[data-val='${(flatVal) * mod}']`).classList.add("half");
+  }
+  else if (half) {
+    //rd + h
+    for (let i = 0; i < flatVal+1; i++) {
+      elem.querySelector(`[data-val='${(i+1) * mod}']`).classList.add("active");
+    }
+    elem.querySelector(`[data-val='${(flatVal+1) * mod}']`).classList.add("half");
   }
   else {
+    //rd
     for (let i = 0; i < flatVal; i++) {
-      dom += `<div></div>`;
+      elem.querySelector(`[data-val='${(i+1) * mod}']`).classList.add("active");
+      console.log("rDn for" + i);
     }
   }
   
-  return (
-    `
-    ${dom}
-    ${(half) ? `<div class="half"></div>` : ""}
-    `
-  )
+  
 }
 
 const countKeywords = words => {
@@ -362,12 +423,42 @@ const mainPage = props => {
 const splashPage = props => {
   return (
     `<section class="splash">
-      <h2>Imagine an ordinary day in your life, and answer as such.</h2>
-      <div class="walktostart">
+    <video id="splashVid" mute>
+      <source src="img/art/splash.mp4" type="video/mp4"></source>
+    </video>
+      <div id="walkToStart" class="walktostart">
         <img src="img/art/stepping.gif">
         <h2>Walk To Start</h2>
       </div>
     </section>`
+  )
+}
+
+const analyzePage = props => {
+  return (
+      `
+      <section class="analyze">
+        <div id="completeOverlay" class="complete-overlay">
+          <div>
+            <h1>TRANSFER COMPLETE</h1>
+            <button id="viewResults" type="button" class="button">View My Results</button>
+          </div>
+        </div>
+        <div class="anal-dude">
+          <video mute autoplay="autoplay" loop>
+            <source src="img/art/analyze.mp4" type="video/mp4"></source>
+          </video>
+        </div>
+        <div class="anal-info">
+          <h1>WALK TO GENERATE ENERGY</h1>
+          <div class="prog-bar">
+            <div class="inner-bar">
+            </div>
+          </div>
+          <h3>Analyzing...</h3>
+        </div>
+      </section>
+      `
   )
 }
 
@@ -378,11 +469,22 @@ const resultsPage = props => {
       
         <div class="dude">
           <img src="img/art/person.png">
+          <img class="double-dude" src="img/art/person_over.png">
           
           <div class="scale one">
             <h3>Environmental Conciousness</h3>
             <div class="range">
                 <div id="ecScale" class="markers">
+                  <div data-val="-5"></div>
+                  <div data-val="-4"></div>
+                  <div data-val="-3"></div>
+                  <div data-val="-2"></div>
+                  <div data-val="-1"></div>
+                  <div data-val="1"></div>
+                  <div data-val="2"></div>
+                  <div data-val="3"></div>
+                  <div data-val="4"></div>
+                  <div data-val="5"></div>
                 </div>
                 <div class="label">
                   <h4>|</h4>
@@ -395,6 +497,16 @@ const resultsPage = props => {
             <h3>Frugality</h3>
             <div class="range">
               <div id="frugScale" class="markers">
+                <div data-val="-5"></div>
+                <div data-val="-4"></div>
+                <div data-val="-3"></div>
+                <div data-val="-2"></div>
+                <div data-val="-1"></div>
+                <div data-val="1"></div>
+                <div data-val="2"></div>
+                <div data-val="3"></div>
+                <div data-val="4"></div>
+                <div data-val="5"></div>
               </div>
               <div class="label">
                 <h4>|</h4>
@@ -407,6 +519,16 @@ const resultsPage = props => {
             <h3>Health/Fitness</h3>
             <div class="range">
               <div id="healthScale" class="markers">
+                <div data-val="-5"></div>
+                <div data-val="-4"></div>
+                <div data-val="-3"></div>
+                <div data-val="-2"></div>
+                <div data-val="-1"></div>
+                <div data-val="1"></div>
+                <div data-val="2"></div>
+                <div data-val="3"></div>
+                <div data-val="4"></div>
+                <div data-val="5"></div>
               </div>
               <div class="label">
                 <h4>|</h4>

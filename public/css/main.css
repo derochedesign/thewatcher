@@ -18,11 +18,27 @@
     
     --impactshadow: 5px 5px 5px 0 var(--impactcolour);
     
-    --scalewidth: 12em;
+    --scalewidth: 14em;
+    --prog-prog: 0%;
 }
 
+.walk-btn {
+    position: absolute;
+    bottom: -4em;
+    z-index: 9;
+    transition: 0.3s ease;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.walk-btn.active {
+    bottom: 1em;
+}
+
+.splash {
+    margin: 0 auto;
+}
 .splash .walktostart {
-    display: grid;
+    display: none;
     padding-top: 10em;
 }
 .splash h2 {
@@ -42,6 +58,11 @@
     position: absolute;
     top:0;
     left: 0;
+    cursor: pointer;
+    background-color: red;
+    width: 10vw;
+    height: 10vw;
+    z-index: 999999999999999999;
 }
 
 * {
@@ -169,9 +190,13 @@ button.button.important:hover {
 }
 .city-back {
     position: absolute;
-    bottom: -8em;
+    bottom: 0;
     width: 100%;
     left: 0;
+}
+.city-back video {
+    position: relative;
+    z-index: -1;
 }
 .step-info {
     width: 20em;
@@ -309,6 +334,58 @@ section.main {
 .timeline .time-marks :last-child {
     justify-self: right;
 }
+
+/*ANALYZE*/
+
+.anal-info {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 45vh;
+}
+.anal-info h1 {
+    margin-bottom: 1em;
+}
+.anal-info h3 {
+    margin-top: 1em;
+}
+
+.anal-dude {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.prog-bar {
+    width: 60vw;
+    height: 4em;
+    border: 2px solid white;
+    margin: 0 auto;
+}
+.prog-bar .inner-bar {
+    background-color: var(--impactcolour);
+    width: var(--prog-prog);
+    height: 100%;
+    transition: 0.5s ease;
+}
+
+.complete-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    display: none;
+    z-index: 2;
+}
+.complete-overlay div {
+    text-align: center;
+}
+
 /*STATS*/
 
 .results .tag {
@@ -319,6 +396,10 @@ section.main {
     margin: 0.5em;
     font-size: 1em;
     display: inline-block;
+}
+.double-dude {
+    position: absolute;
+    transform: translateX(0.5em) translateY(0.3em);
 }
 .results .scale {
     position: absolute;
@@ -352,20 +433,16 @@ section.main {
     flex-direction: row;
     justify-items: center;
 }
-.results .scale .markers.negative {
-    width: calc(var(--scalewidth) / 2);
-    flex-direction: row-reverse;
-}
-.results .scale .markers.positive {
-    width: calc(var(--scalewidth) / 2);
-    margin-left: calc(var(--scalewidth) / 2);
-}
 .results .scale .markers div {
     width: 1em;
     height: 1em;
     border-radius: 100%;
-    background-color: var(--impactcolour);
+    border: solid white 1px;
+    background-color: transparent;
     margin: 0.2em;
+}
+.results .scale .markers div.active {
+    background-color: var(--impactcolour);
 }
 .results .scale .markers.positive div.half {
     border-radius: 2em 0 0 2em;
