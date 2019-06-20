@@ -24,7 +24,7 @@
 
 .walk-btn {
     position: absolute;
-    bottom: -4em;
+    bottom: -8em;
     z-index: 9;
     transition: 0.3s ease;
     left: 50%;

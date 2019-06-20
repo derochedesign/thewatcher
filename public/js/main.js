@@ -5,7 +5,7 @@ const btnAud = document.getElementById("effectAudio");
 let root = document.documentElement;
 let allQuestions;
 let questionsDom;
-let stepInfo;
+let stepInfo = 'none';
 
 $("#makeFull").click(function() {
   if (screenfull.enabled) {
@@ -55,7 +55,6 @@ startBtn.addEventListener("click", _ => {
     checkWalking(1, ready);
   };
   
-  
 });
 
 document.addEventListener("click", e => {
@@ -65,8 +64,15 @@ document.addEventListener("click", e => {
   if (e.target.matches("#viewResults")) {
     giveResults();
   }
-  if (e.target.matches("#walkBtn")) {
+  if (e.target.matches("#walkBtnb")) {
+    console.log(`change: ${stepInfo}`);
     
+    if (stepInfo == "none") {
+      stepInfo = "right";
+    }
+    else {
+      stepInfo = "none";
+    }
   }
 })
 
@@ -88,6 +94,7 @@ const handleSounds = (sPos, q) => {
 }
 
 const checkWalking = (steps, func) => {
+    document.getElementById("walkBtn").classList.toggle("active");
     //on walk
     let stepPos = 0;
     let prevStep;
@@ -95,9 +102,9 @@ const checkWalking = (steps, func) => {
     const stepLoop = setInterval(animsx, 800);
   
     function animsx() {
-      $.getJSON('data/stepping.json', function(result) { 
+      // $.getJSON('data/stepping.json', function(result) { 
         
-        stepInfo = result.step;
+        // stepInfo = result.step;
         console.log(stepInfo);
         
         if (prevStep != stepInfo) {
@@ -115,6 +122,7 @@ const checkWalking = (steps, func) => {
             
             setTimeout(_ => {
               func.call();
+              document.getElementById("walkBtn").classList.toggle("active");
               clearInterval(stepLoop);
             },500);
             
@@ -124,7 +132,7 @@ const checkWalking = (steps, func) => {
         console.log("skipping");
         prevStep = stepInfo;
         
-      });
+      // });
     }
 }
 
