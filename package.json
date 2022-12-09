@@ -19,7 +19,7 @@
   "homepage": "https://github.com/derochedesign/deroche.design#readme",
   "dependencies": {
     "ejs": "^2.6.1",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "nodemon": "^1.18.10",
     "reload": "^3.0.1"
   }
